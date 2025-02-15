@@ -5,14 +5,14 @@ import {
     Text,
     View,
     ActivityIndicator,
-} from "react-native";
+    Keyboard,
+    TouchableWithoutFeedback
+} 
+from "react-native";
 import Weather from "./Components/Weather";
 import SearchBar from "./Components/SearchBar";
 import * as Location from "expo-location";
-import { API_KEY } from "@env";  // Import the variable from .env
-
-console.log("API Key:", API_KEY);
-//const API_KEY = "46a9246bebba16d42b36aac3fc3ba8af";
+import { API_KEY } from "@env";  
 
 export default function App() {
     const [latitude, setLatitude] = useState(null);
@@ -44,10 +44,9 @@ export default function App() {
                     setAddress(response[0]);
                 }
 
-                return {
-                    latitude: coords.latitude,
-                    longitude: coords.longitude,
-                };
+                const city = response[0].city;
+                console.log(city);
+                return { city };
             }
         } catch (error) {
             setErrorMsg("Error getting location");
@@ -78,7 +77,7 @@ export default function App() {
         const fetchData = async () => {
             const location = await getLocation();
             if (location) {
-                fetchWeatherData("Delhi"); // You need a default city name or use reverse-geocoded city
+                fetchWeatherData(location.city);
             }
         };
 
@@ -93,17 +92,21 @@ export default function App() {
         );
     } else if (weatherData === null) {
         return (
-            <View style={styles.container}>
-                <SearchBar fetchWeatherData={fetchWeatherData} />
-                <Text style={styles.primaryText}>City Not Found! Try Different City</Text>
-            </View>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                <View style={styles.container}>
+                    <SearchBar fetchWeatherData={fetchWeatherData} />
+                    <Text style={styles.primaryText}>City Not Found! Try Different City</Text>
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 
     return (
-        <View style={styles.container}>
-            <Weather weatherData={weatherData} fetchWeatherData={fetchWeatherData} />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View style={styles.container}>
+                <Weather weatherData={weatherData} fetchWeatherData={fetchWeatherData} />
+            </View>
+        </TouchableWithoutFeedback>
     );
 }
 
