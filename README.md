@@ -1,5 +1,5 @@
 # WeatherApp
-I create this app using React Native Expo. I learned a lot of new thing while making this application like how the styled components works
+I created this app using React Native Expo. I learned a lot of new thing while making this application like how the styled components works
 How to use chatgpt efficiently to implement own features and when you found the depreaceted(which are no longer in use) methods so how to 
 learn from documentations and search the alternatives. I also added the feature of exit the keyword when you enter on anywhere on the screen without entering any message.
 
@@ -45,4 +45,7 @@ npm start
 ```
 # Application View
 
+# Application View
+
+![Application View](./WEATHERAPP/Application.gif)
 ## 
