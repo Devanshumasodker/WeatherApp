@@ -47,5 +47,5 @@ npm start
 
 # Application View
 
-![Application View](./WEATHERAPP/Application.gif)
+![Application View](./Application.gif)
 ## 
