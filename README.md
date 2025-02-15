@@ -52,5 +52,9 @@ and then use it this way
 ## Future Scope
 - Add city suggestions
 - Weekly weather report
-- Notifications if there is a chance of rain in   your city
+- Notifications if there is a chance of rain in your city
 - Auto-correction in city names if someone types a name incorrectly, e.g., "Canada" to "Cannnda," so it will understand
+
+## Open Source
+- I believe in sharing, so feel free to use and modify the code.
+- If you have suggestions or want to fix issues, I am here to collaborate.
